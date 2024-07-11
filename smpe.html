@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper 2개 연결 예제</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+    <style>
+        .swiper-container {
+            width: 600px;
+            height: 300px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 첫 번째 스와이퍼 -->
+    <div class="swiper-container swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- 두 번째 스와이퍼 -->
+    <div class="swiper-container swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide A</div>
+            <div class="swiper-slide">Slide B</div>
+            <div class="swiper-slide">Slide C</div>
+        </div>
+       
+    </div>
+
+
+    <script>
+
+	var galleryTop = new Swiper('.swiper1', {
+    	spaceBetween: 10,	//슬라이드 간격
+        pagination: {	//페이징 사용자 설정
+        	el: ".swiper-pagination",	//페이징 태그 클래스 설정 
+        	clickable: true,	//버튼 클릭 여부
+			type : 'bullets',	//페이징 타입 설정(종류: bullets, fraction, progress, progressbar)
+			// Bullet Numbering 설정
+        	renderBullet: function (index, className) {
+        		return '<span class="' + className + '">' + (index + 1) + "</span>";
+        	},
+		},
+		loop: true	//슬라이드 반복
+    });
+
+    var galleryThumbs = new Swiper('.swiper2', {
+    	spaceBetween: 0,	//슬라이드 간격
+    	navigation: {	//네비게이션 사용자 설정
+    		nextEl: '.swiper-button-next',	//다음 버튼 클래스 설정
+        	prevEl: '.swiper-button-prev',	//이전 버튼 클래스 설정
+    	},
+    	centeredSlides: true,	//슬라이드 중앙 배치
+    	slidesPerView: 1,	//한번에 보여지는 슬라이드 숫자 설정(auto 가능)
+    	touchRatio: 0.2,	//드래그 비율 설정(기본값: 1, 기본값을 0으로 설정할 경우 드래그 불가능)
+    	slideToClickedSlide: true,	//슬라이드가 여러개 나열되어 있을 경우, 클릭 시 해당 슬라이드 위치로 이동
+		loop: true	//슬라이드 반복
+    });
+
+    	//Main Swiper와 Thumbnail Swiper가 연동제어 서로를 제어	
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;	
+    </script>
+</body>
+</html>

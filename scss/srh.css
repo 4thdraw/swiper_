@@ -1,0 +1,214 @@
+@charset "UTF-8";
+body {
+  overflow: hidden;
+}
+
+.mainwrapper {
+  position: relative;
+  margin-left: -750px;
+  overflow-x: hidden;
+}
+
+#mainslider {
+  background-color: #f9d6d6;
+  height: 800px;
+  position: relative;
+  transition: 0.5s;
+}
+#mainslider .mainTextbox {
+  max-width: 700px;
+  margin-top: 396px;
+  min-width: 420px;
+  width: 20vw;
+}
+#mainslider .mainTextbox .mainSlidetext p {
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  background: #000;
+  border-radius: 30px;
+  width: 155px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mainslider .mainTextbox .mainSlidetext strong {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 46px;
+  letter-spacing: -6%;
+}
+#mainslider .mainTextbox .mainSlidetext .text-with-underline {
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 1px; /* 텍스트와 밑줄 사이의 공간 조정 */
+}
+#mainslider .mainTextbox .mainSlidetext .text-with-underline::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #333;
+  margin-top: 1px;
+  width: 4.8rem;
+}
+#mainslider .mainImgbox {
+  margin-top: 264px;
+  height: 580px;
+  z-index: 2;
+  width: 1100px;
+}
+#mainslider .mainImgbox .swiper-slide img {
+  border-radius: 10px;
+  width: 100%;
+  height: 580px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+#mainslider .mainPagebox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  bottom: 0;
+}
+#mainslider .mainPagebox .Page {
+  height: 44px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#mainslider .mainPagebox .Page .swiper-progress-bar {
+  position: relative;
+  width: 180px !important;
+  z-index: 2;
+  height: 2px !important;
+  background: #989797;
+  overflow: hidden;
+  margin-right: 25px;
+}
+#mainslider .mainPagebox .Page .swiper-progress-bar .slide_progress-bar {
+  position: absolute;
+  height: 2px;
+  background: #989797;
+  width: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#mainslider .mainPagebox .Page .swiper-progress-bar .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+  background: #000;
+  z-index: 1;
+}
+#mainslider .mainPagebox .Page .swiper-pagination {
+  width: 44px;
+  height: 44px;
+  position: static;
+  font-size: 15px;
+  font-weight: 400;
+}
+#mainslider .mainPagebox .Page .swiper-pagination .swiper-pagination-current2 {
+  color: #989797;
+}
+#mainslider .mainPagebox .Page .btn {
+  position: relative;
+  height: 44px;
+  width: 59px;
+  margin-left: 65px;
+  padding: 0;
+  border: 0;
+  text-align: center;
+}
+#mainslider .mainPagebox .Page .btn .button-prev {
+  width: 10px;
+  height: 10px;
+  background: url(/myrealcode/img/mainLeft.svg) no-repeat;
+}
+#mainslider .mainPagebox .Page .btn .button-next {
+  width: 10px;
+  height: 10px;
+  background: url(/myrealcode/img/mainRight.svg) no-repeat;
+}
+#mainslider .mainPagebox .Page .btn .button-stop {
+  width: 7px;
+  height: 10px;
+  background: url(/myrealcode/img/mainStop.svg) no-repeat;
+}
+@keyframes fillProgress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+#sns img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  position: relative; /* 상대적인 위치 지정 */
+}
+#sns .snsImgR {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+#sns .snsImgR:hover {
+  transform: scale(1.3);
+  filter: none;
+  z-index: 2; /* 확대된 이미지가 다른 요소 위로 올라가게 함 */
+}
+#sns .snsImgR:hover ~ .snsImg::after { /* 이미지와 같은 레벨에 있는 .snsImg::after에 적용 */
+  transform: scale(1.3); /* 이미지와 동일한 크기로 확대 */
+}
+#sns .snsImgR::after {
+  content: "";
+  background: url(/myrealcode/img/instagram2.svg) no-repeat;
+  width: 13px;
+  height: 13px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: transform 0.5s ease; /* 확대되는 애니메이션을 위한 트랜지션 */
+  transform-origin: top right; /* 우측 상단을 기준으로 확대 */
+  z-index: 1;
+}
+#sns .snsLefttextR h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+#sns .snsLefttextR p {
+  font-size: 20px;
+  font-weight: 400;
+}
+#sns .snsLefttextR p span {
+  color: #B2A569;
+  font-weight: 500;
+}
+#sns .snsRighttextR strong {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background: #000;
+  border-radius: 30px;
+  width: 97px;
+  height: 37px;
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+}
+#sns .snsRighttextR p {
+  font-size: 14px;
+  font-weight: 400;
+}
